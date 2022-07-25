@@ -1,5 +1,6 @@
-FROM python:3.8-slim-buster
+FROM gcc:4.9
 
+WORKDIR /project
 COPY . .
-
-CMD [ "python3", "main.py"]
+RUN gcc -std=c99 -o Main main.c
+ENTRYPOINT ["./Main"]
